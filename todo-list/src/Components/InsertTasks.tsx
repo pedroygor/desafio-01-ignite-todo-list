@@ -1,13 +1,23 @@
 import React from "react";
 import {PlusCircle} from 'phosphor-react'
+import { ChangeEvent, useState } from 'react'
 
-interface PropsInsertTasks {
-  handleClick: () => void,
-  changeInputTask: () => void,
-  inputTask: string,
+interface Props {
+  getTasks: (task: string) => void
 }
 
-export function InsertTasks({handleClick, inputTask, changeInputTask}: PropsInsertTasks) {
+export function InsertTasks({ getTasks }: Props) {
+  const [inputTask, setInputTask] = useState('');
+
+function handleChangeInputTask(e: ChangeEvent<HTMLInputElement>) {
+    setInputTask(e.target.value)
+}
+
+function handleClickButton() {
+  getTasks(inputTask);
+  setInputTask('');
+}
+
   return (
     <section>
       <input 
@@ -16,11 +26,11 @@ export function InsertTasks({handleClick, inputTask, changeInputTask}: PropsInse
         id="task" 
         placeholder="Adicione uma nova Tarefa"
         value={inputTask}
-        onChange={changeInputTask}
+        onChange={handleChangeInputTask}
       />
       <button 
       type="button"
-      onClick={handleClick}
+      onClick={handleClickButton}
       >
         Criar 
         <PlusCircle />
