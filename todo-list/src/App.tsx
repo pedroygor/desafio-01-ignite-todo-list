@@ -1,8 +1,14 @@
 import { useState } from 'react'
-import './App.css'
 import { Header } from './Components/Header'
 import { InsertTasks } from './Components/InsertTasks'
 import { TaskBoard } from './Components/TaskBoard';
+import styled from 'styled-components';
+import Global from './global';
+
+const Main = styled.main`
+  height: 100vh;
+  width: 100%;
+`
 
 function App() {
   const [tasks, setTasks] = useState<string[]>([]);
@@ -35,7 +41,8 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <Main>
+      <Global />
       <Header />
       <InsertTasks 
         getTasks={getTasks}
@@ -48,7 +55,7 @@ function App() {
         changeTasksCompleted={changeTasksCompleted}
         deleteTask={deleteTask}
       />
-    </div>
+    </Main>
   )
 }
 
