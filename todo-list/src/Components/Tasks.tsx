@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Trash } from 'phosphor-react'
+import { CheckCircle, Trash } from 'phosphor-react'
 import styled from 'styled-components'
+
 
 const TaskStyle = styled.section`
   display: flex;
@@ -8,21 +9,32 @@ const TaskStyle = styled.section`
   justify-content: space-between;
   padding: 16px;
   gap: 12px;
-  height: 72px;
   font-size: 0.875rem;
-  line-height: 1.4;
+  line-height: 1;
   background: var(--gray-500);
   border: 1px solid var(--gray-400);
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06);
   border-radius: 8px;
   width: 100%;
+  height: 72px;
 
+  p {
+    width: 90%;
+    text-align: start;
+  }
+
+  input[type=checkbox]:checked ~ p {
+    text-decoration: line-through;
+    color: var(--gray-300);
+  }
 `
 
-const ButtonTrashStyle = styled.button`
+const ButtonTrashStyle = styled(Trash)`
+  color: var(--gray-300);
+  font-weight: bold;
+  transition: color 0.2s;
   :hover {
-    width: 50px;
-    background: var(--danger);
+    color: var(--danger);
   }
 `
 
@@ -55,11 +67,9 @@ export function Tasks({ contentTask, changeTasksCompleted, deleteTask }: Props) 
       />
 
       <p>{contentTask}</p>
-      <Trash
-        size={15}
-        weight="bold"
+      <ButtonTrashStyle
+        size={14}
         onClick={handleClick}
-        color="var(--gray-300)"
       />
     </TaskStyle>
   )

@@ -30,7 +30,7 @@ const InfoTask = styled.div`
   align-items: center;
   span {
     font-weight: 700;
-    color: ${ (props: { purple?: boolean }) => props.purple && "var(--purple)" };
+    color: ${(props: { purple?: boolean }) => props.purple && "var(--purple)"};
   }
 `
 
@@ -51,16 +51,16 @@ const ContentTaskStyle = styled.section`
 `
 
 interface infoTasks {
-  numberOfTaksCreated: number, 
-  numberOfTaksCompleted: number, 
+  numberOfTaksCreated: number,
+  numberOfTaksCompleted: number,
   tasks: string[],
   changeTasksCompleted: (isChecked: boolean) => void,
   deleteTask: (contentTask: string, isChecked: boolean) => void,
 }
 
-export function TaskBoard({numberOfTaksCreated, numberOfTaksCompleted, tasks, 
-  changeTasksCompleted, deleteTask} :infoTasks) {
-  return(
+export function TaskBoard({ numberOfTaksCreated, numberOfTaksCompleted, tasks,
+  changeTasksCompleted, deleteTask }: infoTasks) {
+  return (
     <TaskBoardContainerStyle>
       <TaskBoardStyle>
         <HeaderBoardStyle>
@@ -70,20 +70,20 @@ export function TaskBoard({numberOfTaksCreated, numberOfTaksCompleted, tasks,
           </InfoTask>
           <InfoTask purple>
             <span>Concluídas</span>
-            <Count>{numberOfTaksCompleted === 0 ? 0 :  `${numberOfTaksCompleted} de ${numberOfTaksCreated}`}</Count>
+            <Count>{numberOfTaksCompleted === 0 ? 0 : `${numberOfTaksCompleted} de ${numberOfTaksCreated}`}</Count>
           </InfoTask>
         </HeaderBoardStyle>
         <ContentTaskStyle>
           {tasks.map((item) => (
-            <Tasks 
-            key={item}
-            contentTask={item}
-            changeTasksCompleted={changeTasksCompleted}
-            deleteTask={deleteTask}
+            <Tasks
+              key={item}
+              contentTask={item}
+              changeTasksCompleted={changeTasksCompleted}
+              deleteTask={deleteTask}
             />
-            ))}
+          ))}
         </ContentTaskStyle>
-        </TaskBoardStyle>
+      </TaskBoardStyle>
     </TaskBoardContainerStyle>
   )
 }

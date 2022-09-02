@@ -1,5 +1,5 @@
 import React from "react";
-import {PlusCircle} from 'phosphor-react'
+import { PlusCircle } from 'phosphor-react'
 import { ChangeEvent, useState } from 'react'
 import styled from "styled-components";
 
@@ -60,32 +60,32 @@ interface Props {
 export function InsertTasks({ getTasks }: Props) {
   const [inputTask, setInputTask] = useState('');
 
-function handleChangeInputTask(e: ChangeEvent<HTMLInputElement>) {
+  function handleChangeInputTask(e: ChangeEvent<HTMLInputElement>) {
     setInputTask(e.target.value)
-}
+  }
 
-function handleClickButton() {
-  getTasks(inputTask);
-  setInputTask('');
-}
+  function handleClickButton() {
+    getTasks(inputTask);
+    setInputTask('');
+  }
 
   return (
     <InputTasksStyle>
-      <InputStyle 
-        type="text" 
-        name="task" 
-        id="task" 
+      <InputStyle
+        type="text"
+        name="task"
+        id="task"
         placeholder="Adicione uma nova tarefa"
         value={inputTask}
         onChange={handleChangeInputTask}
       />
-      <ButtonStyle 
-      type="button"
-      onClick={handleClickButton}
+      <ButtonStyle
+        type="button"
+        onClick={handleClickButton}
       >
-        Criar 
-        <PlusCircle weight="bold"/>
-     </ButtonStyle>
+        Criar
+        <PlusCircle size={14} weight="bold" />
+      </ButtonStyle>
     </InputTasksStyle>
   )
 }
