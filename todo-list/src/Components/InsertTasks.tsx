@@ -23,6 +23,8 @@ const InputStyle = styled.input`
   padding: 16px;
   color: var(--gray-100);
   width: 100%;
+  font-size: 16px;
+
   
   ::placeholder {
     color: var(--gray-300);
@@ -31,6 +33,7 @@ const InputStyle = styled.input`
 
   :focus {
     border: 1px solid var(--blue-dark);
+    color: var(--gray-300);
   }
   
 `
