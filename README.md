@@ -15,16 +15,16 @@ React, Phosphor-react, Styled Components e TypeScript.
 
 ### Orientações
 
-1. Clone Repositório
+1.Clone Repositório
 
 - Use o comando: `git clone git@github.com:pedroygor/desafio-01-ignite-todo-list.git`.
 - Entre na pasta do repositório que você acabou de clonar: `cd desafio-01-ignite-todo-list`
 
-2. Instale as dependências
+2.Instale as dependências
 
 - `npm install`
 
-3. Inicialize a aplicação
+3.Inicialize a aplicação
 
 - `npm run dev`
 
